@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODIN LIBRARY</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    
+
+</head>
+<body style="background-color: burlywood;">
+    <h4></h4>
+    <div class="container">
+        
+
+        <div class="book" id="library">
+            <h4 style="color: goldenrod; margin-top: -270px; margin-left: -120px;">ODIN LIBRARY</h4>
+            <p style="color: goldenrod; margin-top: -240px; margin-left: -120px;">Book stack filled with History books,<br>encyclopaedia, scienctific discovery book, maps<br>and bunch of other items</p>
+
+            
+        <div>
+            <form id="form1" method="post" style="color: goldenrod;  border-left-color: black;">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" style="margin-bottom: 20px; margin-left: 118px; background-color: goldenrod;">
+                <br>
+        
+                <label for="author">Author:</label>
+                <input type="text" name="author" style="margin-bottom: 20px; margin-left: 100px; background-color: goldenrod;">
+                <br>
+
+                <label for="pages">Number of Pages:</label>
+                <input type="number" name="pages" id="num"  style="margin-bottom: 20px; margin-left: 20px; background-color: goldenrod;">
+                <br>
+
+                <input type="radio" id="read" name="ticket_type" value="read">
+                <label for="read">Have You Read?</label>
+                <br>
+                
+                <input type="submit" onclick="addBookToLibrary()" id="mySubmit" value="Create" style="padding: 10px; background-color: goldenrod; width: 100px;">
+                
+            </form>
+            <div id="display">
+                
+            </div> 
+
+            <button id="btn2" onclick="addForm()" class="w3-button w3-xxxlarge w3-circle w3-grey" style="padding-bottom: 78px; padding-right: 60px; padding-top: 1px;">+</button>
+            
+            <div id="card">
+                <h4>HOBBIT</h4>
+                <p>Title: Hobbit<br>
+                   Author: J.R.R Tolken<br>
+                   Pages: 295<br>
+                   Have you read? Yes
+                </p>
+                </i><button id="btn" onclick="removeCard()" style="border-radius: 20px; width: 100px; padding: 20px; background-color: white;">
+                    Remove<br>
+                    <i class="fa fa-trash-o" ></i>
+                </button>
+                <!-- Card content will go here -->
+            </div>
+            
+            
+        
+        </div>
+
+    </div>
+        
+    
+</body>
+</html>
