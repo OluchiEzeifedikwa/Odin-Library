@@ -1,0 +1,74 @@
+.container {
+    display: inline-grid;
+    grid-template: 50px / 50px;
+    background-color: black; 
+
+}
+
+#form1 {
+    height: 500px;
+    margin-bottom: -395px;
+    display: none;
+    border-radius: 20px;
+    /* background-color: var(--main-bg); */
+    margin-left: 300px;
+    background-color: grey;
+    margin-top: -200px;
+    padding-top: 100px;
+    padding-left: 10px; 
+    padding-right: 3px;
+    border-left-color: goldenrod, 10px;
+    padding-bottom: 5px;
+
+}
+
+#btn2 {
+    /* background-color: goldenrod; */ 
+    padding: 20px; 
+    /* padding-bottom: 30px; */
+    /* padding-right: 30px; */
+    width: 10px;
+    height: 5px;
+    border-radius: 50%;
+    display: inline-flex; 
+    margin-top: 80px; 
+    /* font-size: ; */
+    /* margin-left: 900px; */
+}
+
+
+input {
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.book {
+    padding: 300px;
+
+    
+
+    
+}
+
+#library {
+    grid-area:1/1/40/10; 
+    display: inline-grid;
+    
+}
+
+
+#card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 40px;
+    margin: 10px; 
+    margin-left: -120px;
+    margin-right: 500px;
+    margin-bottom: -270px;
+    background-color: grey;
+    
+    /* Add more styles as needed */
+}
+
+
