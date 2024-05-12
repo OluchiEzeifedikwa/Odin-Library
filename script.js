@@ -6,113 +6,97 @@ function Book(title, author, pages, haveYouRead) {
    this.pages = pages;
    this.haveYouRead = haveYouRead;
    this.info = function() {
-       return this.title + this.author + this.pages + this.haveYouRead;
+       return { title, author, pages, haveYouRead };
    }
 }
 
 
-const theHobbit = new Book('The Hobbit, ', "J.R.R Tolkien, ", "295 pages, ", "not read yet");
-console.log(theHobbit.info());
+const theHobbit = new Book('The Hobbit', "J.R.R Tolkien", "295 pages", true);
+const lotr = new Book('The Lord of the Rings', "Tolkien", "400 pages", false);
+console.log(theHobbit);
 
 console.log(Object.getPrototypeOf(theHobbit) === Book.prototype);
 
-myLibrary.push(theHobbit.info());
+myLibrary.push(theHobbit);
+myLibrary.push(lotr)
+
 console.log(myLibrary);
 
+function createDefaultCard() {
+    console.log('length of array', myLibrary.length)
+    for (let i = 0; i < myLibrary.length; i++) {
+        console.log('counter', i)
+        let lib = myLibrary[i].info()
+        createCard(lib.title, lib.author, lib.pages, lib.haveYouRead)
+    }
+}
 
+// create div for card here
+function createCard(bookTitle, bookAuthor, bookPages, hasReadBook) {
+    const card = document.createElement('div')
+    const title = document.createElement('h4')
+    const author = document.createElement('p')
+    const pages = document.createElement('p')
+    const hasRead = document.createElement('p')
+    const removeBtn = document.createElement('button')
+    const icon = document.createElement('i')
+
+    card.classList.add('card')
+    removeBtn.classList.add('removeBtn')
+    icon.classList.add('fa', 'fa-trash-o')
+
+    removeBtn.textContent = 'Remove'
+    const isRead = hasReadBook ? 'yes' : 'no'
+    hasRead.textContent = 'Have you read? ' + isRead
+    title.textContent = 'Title: ' + bookTitle
+    author.textContent = 'Author: ' + bookAuthor
+    pages.textContent = 'Pages: ' + bookPages
+
+    card.setAttribute('id', bookTitle)
+    removeBtn.setAttribute('id', bookTitle + 'removeBtn')
+
+    removeBtn.appendChild(icon)
+    card.appendChild(title)
+    card.appendChild(author)
+    card.appendChild(pages)
+    card.appendChild(hasRead)
+    card.appendChild(removeBtn)
+
+    const main = document.getElementById('main');
+    main.appendChild(card)
+
+    removeBtn.addEventListener('click', removeCard)
+}
 
 function addForm() {
     document.getElementById('form1').style.display = 'block';
  }
 
-function removeCard() {
-    const card = document.getElementById('card');
-    card.remove();
- }
-
-function removeDisplay() {
-      const display = document.getElementById('display');
-      display.addEventListener('click', (e) => {
-           display.remove();
-
-    
-    })
-};
-removeDisplay();
+function removeCard(e) {
+     e.target.parentElement.remove();
+//      const card = document.getElementById('card');
+//      card.remove();
+}
 
 
 
-function addBookToLibrary() {
-    // const mySubmit = document.querySelector('#mySubmit');
-    // mySubmit.addEventListener('click', () => {
 
-    // })
 
-    // for(let i=0; i < size; i++) {
-    // const title = document.getElementById('title').value;
 
+function addUserInput() {
     const form = document.getElementById('form1');
-    // const display = document.createElement('div');
-    const display = document.getElementById('display');
-    myDiv = document.getElementById('display');
-    const button = document.createElement('BUTTON');
-    const text = document.createTextNode('Remove');
-    button.appendChild(text);
-    myDiv.appendChild(button);
-    button.style.backgroundColor = 'goldenrod';
-    button.style.padding = '20px';
-    button.style.borderRadius ='20px';
-    button.style.marginTop = '150px';
-    button.classList.add = 'btn1';
-    display.style.border = 'solid black';
-    display.style.padding = '40px';
-    display.style.margin = '10px';
-    display.style.borderRadius = '8px';
-    display.style.height ='320px';
-    display.style.marginTop= '-300px';
-    display.style.marginLeft = '-120px';
-    display.style.marginRight = '500px';
-    display.style.backgroundColor = 'grey';
-    
-    
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const num = document.getElementById('num').value;
+    const read = document.getElementById('read').checked;
 
-    
+    createCard(title, author, num, read)
 
-
-     form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', (e) => {
          e.preventDefault();
-          display.innerHTML = {Title};
-          display.innerHTML = 'button';
-        
-        
+        //   display.innerHTML = {Title};
+        //   display.innerHTML = 'button';    
 });
 };
-    // document.querySelector('#num').innerHTML = document.querySelector('#a').value
     
-//      for(i = 0; i < size; i++) {
-//         const container = document.querySelector(".container");
-//         const column = document.createElement("div");
-//         column.classList.add('column');
-//         //  Card content will go here 
-
-//          for(let j = 0; j < size; j++) {
-//             const row = document.createElement('div');
-//             row.classList.add('row');
-//             row.style.border ='2px solid black';
-//         }
-
-//     //     <button id="btn" onclick="removeCard()" style="border-radius: 20px; width: 100px; padding: 20px; background-color: goldenrod;">Remove</button>
-        
-
-
-    
-//  addBookToLibrary(1);
-// document.getElementById("mySubmit").addEventListener("click", function(event){
-//     event.preventDefault();
-
-//  })
-// }
-// };
-// };
-
-
+createDefaultCard()
