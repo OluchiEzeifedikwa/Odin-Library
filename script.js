@@ -46,7 +46,9 @@ function createCard(bookTitle, bookAuthor, bookPages, hasReadBook) {
     icon.classList.add('fa', 'fa-trash-o')
 
     removeBtn.textContent = 'Remove'
-    const isRead = hasReadBook ? 'yes' : 'no'
+    const isRead = hasReadBook 
+    ? 'yes' 
+    : 'no'
     hasRead.textContent = 'Have you read? ' + isRead
     title.textContent = 'Title: ' + bookTitle
     author.textContent = 'Author: ' + bookAuthor
@@ -74,9 +76,10 @@ function addForm() {
 
 function removeCard(e) {
      e.target.parentElement.remove();
-//      const card = document.getElementById('card');
-//      card.remove();
+    //   const card = document.getElementById('card');
+    //   card.remove();
 }
+
 
 
 
